@@ -1,0 +1,25 @@
+# Nombre del archivo
+archivo = "mi_archivo.txt"
+
+# 1. Escribir en el archivo
+with open(archivo, "w") as file:
+    file.write("Hola, este es un archivo de prueba.\n")
+    file.write("Segunda línea del archivo.\n")
+
+print("Archivo creado y datos escritos.")
+
+# 2. Leer el contenido del archivo
+with open(archivo, "r") as file:
+    contenido = file.read()
+    print("\nContenido del archivo:")
+    print(contenido)
+
+# 3. Modificar el archivo (agregar una nueva línea)
+with open(archivo, "a") as file:
+    file.write("Tercera línea añadida.\n")
+
+# 4. Leer nuevamente el archivo para verificar cambios
+with open(archivo, "r") as file:
+    contenido = file.read()
+    print("\nContenido del archivo tras modificación:")
+    print(contenido)

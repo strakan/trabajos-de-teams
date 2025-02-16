@@ -1,0 +1,11 @@
+# Función para encontrar el mayor entre tres números
+def mayor_de_tres(a, b, c):
+    return max(a, b, c)
+
+# Pedir tres números al usuario
+num1 = float(input("Ingresa el primer número: "))
+num2 = float(input("Ingresa el segundo número: "))
+num3 = float(input("Ingresa el tercer número: "))
+
+# Encontrar y mostrar el mayor número
+print("El mayor número es:", mayor_de_tres(num1, num2, num3))

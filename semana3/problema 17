@@ -1,0 +1,117 @@
+# Implementación de la Pila (Stack)
+class Pila:
+    def __init__(self):
+        self.items = []
+
+    def esta_vacia(self):
+        return len(self.items) == 0
+
+    def apilar(self, item):
+        self.items.append(item)
+
+    def desapilar(self):
+        if not self.esta_vacia():
+            return self.items.pop()
+        else:
+            return "La pila está vacía"
+
+    def ver_tope(self):
+        if not self.esta_vacia():
+            return self.items[-1]
+        else:
+            return "La pila está vacía"
+
+# Implementación de la Cola (Queue)
+class Cola:
+    def __init__(self):
+        self.items = []
+
+    def esta_vacia(self):
+        return len(self.items) == 0
+
+    def encolar(self, item):
+        self.items.append(item)
+
+    def desencolar(self):
+        if not self.esta_vacia():
+            return self.items.pop(0)
+        else:
+            return "La cola está vacía"
+
+    def ver_primero(self):
+        if not self.esta_vacia():
+            return self.items[0]
+        else:
+            return "La cola está vacía"
+
+# Implementación de la Lista Enlazada (Linked List)
+class Nodo:
+    def __init__(self, dato):
+        self.dato = dato
+        self.siguiente = None
+
+class ListaEnlazada:
+    def __init__(self):
+        self.cabeza = None
+
+    def esta_vacia(self):
+        return self.cabeza is None
+
+    def agregar_al_final(self, dato):
+        nuevo_nodo = Nodo(dato)
+        if self.esta_vacia():
+            self.cabeza = nuevo_nodo
+        else:
+            actual = self.cabeza
+            while actual.siguiente:
+                actual = actual.siguiente
+            actual.siguiente = nuevo_nodo
+
+    def eliminar_del_inicio(self):
+        if not self.esta_vacia():
+            self.cabeza = self.cabeza.siguiente
+        else:
+            return "La lista está vacía"
+
+    def ver_primer_elemento(self):
+        if not self.esta_vacia():
+            return self.cabeza.dato
+        else:
+            return "La lista está vacía"
+
+    def mostrar_lista(self):
+        elementos = []
+        actual = self.cabeza
+        while actual:
+            elementos.append(actual.dato)
+            actual = actual.siguiente
+        return elementos
+
+
+# Prueba de las estructuras
+if __name__ == "__main__":
+    # Pila
+    pila = Pila()
+    pila.apilar(10)
+    pila.apilar(20)
+    print(f"Tope de la pila: {pila.ver_tope()}")
+    print(f"Desapilando: {pila.desapilar()}")
+    print(f"Tope de la pila después de desapilar: {pila.ver_tope()}\n")
+    
+    # Cola
+    cola = Cola()
+    cola.encolar(30)
+    cola.encolar(40)
+    print(f"Primero en la cola: {cola.ver_primero()}")
+    print(f"Desencolando: {cola.desencolar()}")
+    print(f"Primero en la cola después de desencolar: {cola.ver_primero()}\n")
+    
+    # Lista Enlazada
+    lista = ListaEnlazada()
+    lista.agregar_al_final(50)
+    lista.agregar_al_final(60)
+    lista.agregar_al_final(70)
+    print(f"Primer elemento en la lista: {lista.ver_primer_elemento()}")
+    print(f"Lista completa: {lista.mostrar_lista()}")
+    lista.eliminar_del_inicio()
+    print(f"Lista después de eliminar el primer elemento: {lista.mostrar_lista()}")

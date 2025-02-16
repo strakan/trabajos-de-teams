@@ -1,0 +1,12 @@
+# Función para determinar si un año es bisiesto
+def es_bisiesto(anio):
+    return (anio % 4 == 0 and anio % 100 != 0) or (anio % 400 == 0)
+
+# Pedir un año al usuario
+año = int(input("Ingresa un año: "))
+
+# Verificar y mostrar resultado
+if es_bisiesto(año):
+    print(f"El año {año} es bisiesto.")
+else:
+    print(f"El año {año} no es bisiesto.")

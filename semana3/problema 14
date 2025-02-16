@@ -1,0 +1,35 @@
+# Métodos de ordenamiento
+def bubble_sort(lista):
+    n = len(lista)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if lista[j] > lista[j+1]:
+                lista[j], lista[j+1] = lista[j+1], lista[j]
+    return lista
+
+def insertion_sort(lista):
+    for i in range(1, len(lista)):
+        key = lista[i]
+        j = i-1
+        while j >= 0 and key < lista[j]:
+            lista[j + 1] = lista[j]
+            j -= 1
+        lista[j + 1] = key
+    return lista
+
+def quick_sort(lista):
+    if len(lista) <= 1:
+        return lista
+    pivot = lista[len(lista) // 2]
+    left = [x for x in lista if x < pivot]
+    middle = [x for x in lista if x == pivot]
+    right = [x for x in lista if x > pivot]
+    return quick_sort(left) + middle + quick_sort(right)
+
+# Pedir al usuario una lista de números
+lista = list(map(int, input("Ingresa una lista de números separados por espacios: ").split()))
+
+# Aplicar y mostrar distintos métodos de ordenamiento
+print("Lista ordenada con Bubble Sort:", bubble_sort(lista[:]))
+print("Lista ordenada con Insertion Sort:", insertion_sort(lista[:]))
+print("Lista ordenada con Quick Sort:", quick_sort(lista[:]))

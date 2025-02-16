@@ -1,0 +1,5 @@
+def busqueda_lineal(lista, objetivo):
+    for i in range(len(lista)):
+        if lista[i] == objetivo:
+            return i  # Retorna el índice si encuentra el elemento
+    return -1  # Retorna -1 si no encuentra el elemento

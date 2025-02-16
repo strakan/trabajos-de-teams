@@ -1,0 +1,19 @@
+import cmath  # Para trabajar con números complejos si el discriminante es negativo
+
+def resolver_ecuacion_cuadratica(a, b, c):
+    # Calculamos el discriminante
+    discriminante = b**2 - 4*a*c
+    
+    # Calculamos las dos soluciones usando la fórmula cuadrática
+    solucion1 = (-b + cmath.sqrt(discriminante)) / (2*a)
+    solucion2 = (-b - cmath.sqrt(discriminante)) / (2*a)
+    
+    return solucion1, solucion2
+
+# Prueba
+a = 1
+b = -3
+c = 2
+
+solucion1, solucion2 = resolver_ecuacion_cuadratica(a, b, c)
+print(f"Las soluciones son: x1 = {solucion1}, x2 = {solucion2}")

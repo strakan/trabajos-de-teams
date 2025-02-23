@@ -1,0 +1,89 @@
+# Función para calcular el factorial de un número
+def factorial(n):
+    if n == 0:  # Caso base
+        return 1
+    else:
+        return n * factorial(n - 1)  # Llamada recursiva
+
+# Función para calcular el n-ésimo número de la serie de Fibonacci
+def fibonacci(n):
+    if n == 0:  # Caso base
+        return 0
+    elif n == 1:  # Caso base
+        return 1
+    else:
+        return fibonacci(n - 1) + fibonacci(n - 2)  # Llamadas recursivas
+
+# Función para sumar los elementos de una lista
+def sum_list(lst):
+    if len(lst) == 0:  # Caso base
+        return 0
+    else:
+        return lst[0] + sum_list(lst[1:])  # Llamada recursiva
+
+# Función para verificar si un número es primo
+def is_prime(n, divisor=2):
+    if n <= 1:  # Caso base
+        return False
+    elif divisor == n:  # Caso base
+        return True
+    elif n % divisor == 0:  # Caso base
+        return False
+    else:
+        return is_prime(n, divisor + 1)  # Llamada recursiva
+
+# Función para encontrar el máximo de una lista
+def max_list(lst):
+    if len(lst) == 1:  # Caso base
+        return lst[0]
+    else:
+        max_rest = max_list(lst[1:])  # Llamada recursiva
+        return lst[0] if lst[0] > max_rest else max_rest  # Comparación
+
+# Función principal para interactuar con el usuario
+def main():
+    print("Funciones Recursivas en Python")
+    
+    while True:
+        print("\nOpciones:")
+        print("1. Calcular el factorial de un número")
+        print("2. Calcular el n-ésimo número de Fibonacci")
+        print("3. Sumar los elementos de una lista")
+        print("4. Verificar si un número es primo")
+        print("5. Encontrar el máximo de una lista")
+        print("6. Salir")
+        
+        choice = input("Elige una opción (1-6): ")
+
+        if choice == "1":
+            num = int(input("Introduce un número para calcular su factorial: "))
+            print(f"El factorial de {num} es: {factorial(num)}")
+        
+        elif choice == "2":
+            num = int(input("Introduce un número para obtener su valor en la serie de Fibonacci: "))
+            print(f"El número de Fibonacci en la posición {num} es: {fibonacci(num)}")
+        
+        elif choice == "3":
+            lst = list(map(int, input("Introduce los números de la lista separados por espacios: ").split()))
+            print(f"La suma de los elementos de la lista es: {sum_list(lst)}")
+        
+        elif choice == "4":
+            num = int(input("Introduce un número para verificar si es primo: "))
+            if is_prime(num):
+                print(f"{num} es un número primo.")
+            else:
+                print(f"{num} no es un número primo.")
+        
+        elif choice == "5":
+            lst = list(map(int, input("Introduce los números de la lista separados por espacios: ").split()))
+            print(f"El número máximo en la lista es: {max_list(lst)}")
+        
+        elif choice == "6":
+            print("Saliendo del programa...")
+            break
+        
+        else:
+            print("Opción no válida. Intenta de nuevo.")
+
+if __name__ == "__main__":
+    main()

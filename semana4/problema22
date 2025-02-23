@@ -1,0 +1,14 @@
+import random
+
+def lanzar_dado():
+    return random.randint(1, 6)
+
+def lanzar_moneda():
+    return random.choice(["Cara", "Cruz"])
+
+if __name__ == "__main__":
+    resultado_dado = lanzar_dado()
+    resultado_moneda = lanzar_moneda()
+    
+    print(f"El dado cayó en: {resultado_dado}")
+    print(f"La moneda cayó en: {resultado_moneda}")

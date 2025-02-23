@@ -1,0 +1,61 @@
+import math
+
+def area_cuadrado(lado):
+    return lado ** 2
+
+def area_rectangulo(base, altura):
+    return base * altura
+
+def area_circulo(radio):
+    return math.pi * radio ** 2
+
+def volumen_cubo(lado):
+    return lado ** 3
+
+def volumen_esfera(radio):
+    return (4/3) * math.pi * radio ** 3
+
+def volumen_cilindro(radio, altura):
+    return math.pi * radio ** 2 * altura
+
+def main():
+    while True:
+        print("\nSeleccione una opción:")
+        print("1. Área de un cuadrado")
+        print("2. Área de un rectángulo")
+        print("3. Área de un círculo")
+        print("4. Volumen de un cubo")
+        print("5. Volumen de una esfera")
+        print("6. Volumen de un cilindro")
+        print("7. Salir")
+        
+        opcion = input("Ingrese el número de la opción deseada: ")
+        
+        if opcion == "1":
+            lado = float(input("Ingrese el lado del cuadrado: "))
+            print(f"El área del cuadrado es: {area_cuadrado(lado):.2f}")
+        elif opcion == "2":
+            base = float(input("Ingrese la base del rectángulo: "))
+            altura = float(input("Ingrese la altura del rectángulo: "))
+            print(f"El área del rectángulo es: {area_rectangulo(base, altura):.2f}")
+        elif opcion == "3":
+            radio = float(input("Ingrese el radio del círculo: "))
+            print(f"El área del círculo es: {area_circulo(radio):.2f}")
+        elif opcion == "4":
+            lado = float(input("Ingrese el lado del cubo: "))
+            print(f"El volumen del cubo es: {volumen_cubo(lado):.2f}")
+        elif opcion == "5":
+            radio = float(input("Ingrese el radio de la esfera: "))
+            print(f"El volumen de la esfera es: {volumen_esfera(radio):.2f}")
+        elif opcion == "6":
+            radio = float(input("Ingrese el radio del cilindro: "))
+            altura = float(input("Ingrese la altura del cilindro: "))
+            print(f"El volumen del cilindro es: {volumen_cilindro(radio, altura):.2f}")
+        elif opcion == "7":
+            print("Saliendo del programa...")
+            break
+        else:
+            print("Opción no válida. Intente de nuevo.")
+
+if __name__ == "__main__":
+    main() 

@@ -1,0 +1,7 @@
+def suma_serie(n):
+    return sum(range(1, n + 1))
+
+if __name__ == "__main__":
+    n = 6
+    resultado = suma_serie(n)
+    print(f"La suma de la serie hasta {n} es: {resultado}")

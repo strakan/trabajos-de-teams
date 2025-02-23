@@ -1,0 +1,27 @@
+
+def crear_matriz(filas, columnas):
+    return np.random.randint(1, 10, (filas, columnas))
+
+def sumar_matrices(matriz1, matriz2):
+    return np.add(matriz1, matriz2)
+
+def multiplicar_matrices(matriz1, matriz2):
+    return np.dot(matriz1, matriz2)
+
+if __name__ == "__main__":
+    filas, columnas = 3, 3
+    matriz1 = crear_matriz(filas, columnas)
+    matriz2 = crear_matriz(filas, columnas)
+    
+    print("Matriz 1:")
+    print(matriz1)
+    print("Matriz 2:")
+    print(matriz2)
+    
+    suma = sumar_matrices(matriz1, matriz2)
+    print("Suma de matrices:")
+    print(suma)
+    
+    multiplicacion = multiplicar_matrices(matriz1, matriz2)
+    print("Multiplicación de matrices:")
+    print(multiplicacion)

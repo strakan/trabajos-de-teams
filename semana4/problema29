@@ -1,0 +1,48 @@
+import random
+import statistics
+
+def generate_data(n, data_type="int", low=1, high=100):
+    """Genera una lista de datos aleatorios."""
+    if data_type == "int":
+        return [random.randint(low, high) for _ in range(n)]
+    elif data_type == "float":
+        return [random.uniform(low, high) for _ in range(n)]
+    else:
+        raise ValueError("Tipo de datos no válido. Usa 'int' o 'float'.")
+
+def analyze_data(data):
+    """Realiza el análisis estadístico de un conjunto de datos."""
+    try:
+        mean = statistics.mean(data)
+        median = statistics.median(data)
+        mode = statistics.mode(data)
+        std_dev = statistics.stdev(data)
+        variance = statistics.variance(data)
+        
+        print(f"Análisis Estadístico de los Datos:")
+        print(f"Promedio (Media): {mean}")
+        print(f"Mediana: {median}")
+        print(f"Moda: {mode}")
+        print(f"Desviación Estándar: {std_dev}")
+        print(f"Varianza: {variance}")
+    except statistics.StatisticsError as e:
+        print(f"Error en el análisis estadístico: {e}")
+
+def main():
+    print("Generación y Análisis Estadístico de Datos")
+    
+    n = int(input("Introduce el número de datos a generar: "))
+    data_type = input("¿Qué tipo de datos deseas generar? (int/float): ").lower()
+    low = float(input("Introduce el valor mínimo para los datos: "))
+    high = float(input("Introduce el valor máximo para los datos: "))
+    
+    # Generar los datos
+    data = generate_data(n, data_type, low, high)
+    
+    print(f"\nDatos Generados: {data}")
+    
+    # Análisis de los datos generados
+    analyze_data(data)
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,59 @@
+class BankAccount:
+    def __init__(self, account_holder, balance=0):
+        self.account_holder = account_holder
+        self.balance = balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"Depósito exitoso: ${amount}. Saldo actual: ${self.balance}.")
+        else:
+            print("El monto del depósito debe ser positivo.")
+
+    def withdraw(self, amount):
+        if amount > 0:
+            if amount <= self.balance:
+                self.balance -= amount
+                print(f"Retiro exitoso: ${amount}. Saldo restante: ${self.balance}.")
+            else:
+                print("Saldo insuficiente para realizar el retiro.")
+        else:
+            print("El monto del retiro debe ser positivo.")
+
+    def check_balance(self):
+        print(f"El saldo actual de la cuenta es: ${self.balance}.")
+
+def main():
+    print("Bienvenido al simulador de cuenta bancaria.")
+    name = input("Introduce el nombre del titular de la cuenta: ")
+    account = BankAccount(name)
+
+    while True:
+        print("\nOpciones:")
+        print("1. Depositar dinero")
+        print("2. Retirar dinero")
+        print("3. Consultar saldo")
+        print("4. Salir")
+
+        choice = input("Elige una opción (1-4): ")
+
+        if choice == "1":
+            amount = float(input("Introduce el monto a depositar: "))
+            account.deposit(amount)
+
+        elif choice == "2":
+            amount = float(input("Introduce el monto a retirar: "))
+            account.withdraw(amount)
+
+        elif choice == "3":
+            account.check_balance()
+
+        elif choice == "4":
+            print("Saliendo del simulador de cuenta bancaria.")
+            break
+
+        else:
+            print("Opción no válida. Intenta de nuevo.")
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,18 @@
+import random
+import matplotlib.pyplot as plt
+
+def generar_datos(cantidad, rango):
+    return [random.randint(rango[0], rango[1]) for _ in range(cantidad)]
+
+def graficar_histograma(datos, bins=10):
+    plt.hist(datos, bins=bins, edgecolor='black')
+    plt.xlabel('Valor')
+    plt.ylabel('Frecuencia')
+    plt.title('Histograma de Datos')
+    plt.show()
+
+if __name__ == "__main__":
+    cantidad_datos = 100
+    rango_datos = (1, 100)
+    datos = generar_datos(cantidad_datos, rango_datos)
+    graficar_histograma(datos)

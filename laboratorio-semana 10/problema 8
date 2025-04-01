@@ -1,0 +1,58 @@
+# Función para implementar el algoritmo Mergesort
+def mergesort(lista):
+    if len(lista) <= 1:
+        return lista
+    
+    # Dividir la lista en dos mitades
+    medio = len(lista) // 2
+    izquierda = lista[:medio]
+    derecha = lista[medio:]
+    
+    # Ordenar recursivamente las dos mitades
+    izquierda = mergesort(izquierda)
+    derecha = mergesort(derecha)
+    
+    # Unir las dos mitades ordenadas
+    return mezclar(izquierda, derecha)
+
+# Función para mezclar dos listas ordenadas
+def mezclar(izquierda, derecha):
+    resultado = []
+    i = j = 0
+    
+    # Mezclar las listas en orden
+    while i < len(izquierda) and j < len(derecha):
+        if izquierda[i] < derecha[j]:
+            resultado.append(izquierda[i])
+            i += 1
+        else:
+            resultado.append(derecha[j])
+            j += 1
+    
+    # Agregar los elementos restantes de las dos listas
+    resultado.extend(izquierda[i:])
+    resultado.extend(derecha[j:])
+    
+    return resultado
+
+# Función principal para ejecutar el programa
+def main():
+    # Solicitar la lista de números al usuario
+    numeros = input("Ingresa una lista de números separados por espacios: ")
+    
+    # Convertir la entrada en una lista de enteros
+    lista = list(map(int, numeros.split()))
+    
+    # Mostrar la lista antes del ordenamiento
+    print("\nLista antes del ordenamiento:")
+    print(lista)
+    
+    # Ordenar la lista usando Mergesort
+    lista_ordenada = mergesort(lista)
+    
+    # Mostrar la lista después del ordenamiento
+    print("\nLista después del ordenamiento con Mergesort:")
+    print(lista_ordenada)
+
+# Ejecutar el programa
+main()

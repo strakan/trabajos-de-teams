@@ -1,0 +1,58 @@
+def agregar_contacto(agenda):
+    nombre = input("Ingrese el nombre del contacto: ")
+    numero = input("Ingrese el número de teléfono: ")
+    correo = input("Ingrese el correo electrónico: ")
+    
+    # Crear la tupla para el contacto y agregarla a la agenda
+    contacto = (nombre, numero, correo)
+    agenda.append(contacto)
+    print(f"Contacto '{nombre}' agregado correctamente.\n")
+
+def buscar_contacto(agenda):
+    nombre = input("Ingrese el nombre del contacto a buscar: ")
+    encontrados = [contacto for contacto in agenda if contacto[0].lower() == nombre.lower()]
+    
+    if encontrados:
+        print(f"\nResultados de búsqueda para '{nombre}':")
+        for contacto in encontrados:
+            print(f"Nombre: {contacto[0]}")
+            print(f"Número: {contacto[1]}")
+            print(f"Correo: {contacto[2]}\n")
+    else:
+        print(f"No se encontró ningún contacto con el nombre '{nombre}'.\n")
+
+def listar_contactos(agenda):
+    # Ordenar la lista de contactos por nombre (primer elemento de la tupla)
+    agenda_ordenada = sorted(agenda, key=lambda x: x[0].lower())
+    print("\nLista de todos los contactos en orden alfabético:")
+    for contacto in agenda_ordenada:
+        print(f"Nombre: {contacto[0]}")
+        print(f"Número: {contacto[1]}")
+        print(f"Correo: {contacto[2]}\n")
+
+def menu():
+    agenda = []
+
+    while True:
+        print("---- Menú de Gestión de Contactos ----")
+        print("1. Agregar nuevo contacto")
+        print("2. Buscar contacto")
+        print("3. Listar todos los contactos en orden alfabético")
+        print("4. Salir")
+        
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == '1':
+            agregar_contacto(agenda)
+        elif opcion == '2':
+            buscar_contacto(agenda)
+        elif opcion == '3':
+            listar_contactos(agenda)
+        elif opcion == '4':
+            print("Saliendo del programa.")
+            break
+        else:
+            print("Opción no válida. Intenta nuevamente.\n")
+
+# Ejecutar el programa
+menu()

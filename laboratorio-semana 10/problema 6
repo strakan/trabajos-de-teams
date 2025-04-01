@@ -1,0 +1,51 @@
+# Clase base Vehiculo
+class Vehiculo:
+    def __init__(self, marca, modelo, año, precio):
+        self.marca = marca
+        self.modelo = modelo
+        self.año = año
+        self.precio = precio
+    
+    # Método para mostrar la información del vehículo
+    def mostrar_info(self):
+        print(f"Marca: {self.marca}")
+        print(f"Modelo: {self.modelo}")
+        print(f"Año: {self.año}")
+        print(f"Precio: ${self.precio:.2f}")
+
+# Subclase Automovil
+class Automovil(Vehiculo):
+    def __init__(self, marca, modelo, año, precio, num_puertas):
+        # Llamar al constructor de la clase base (Vehiculo)
+        super().__init__(marca, modelo, año, precio)
+        self.num_puertas = num_puertas
+    
+    # Método para mostrar la información del automóvil
+    def mostrar_info(self):
+        super().mostrar_info()
+        print(f"Número de puertas: {self.num_puertas}")
+
+# Subclase Motocicleta
+class Motocicleta(Vehiculo):
+    def __init__(self, marca, modelo, año, precio, cilindrada):
+        # Llamar al constructor de la clase base (Vehiculo)
+        super().__init__(marca, modelo, año, precio)
+        self.cilindrada = cilindrada
+    
+    # Método para mostrar la información de la motocicleta
+    def mostrar_info(self):
+        super().mostrar_info()
+        print(f"Cilindrada: {self.cilindrada} cc")
+
+# Ejemplo de uso
+
+# Crear un automóvil
+auto = Automovil("Toyota", "Corolla", 2022, 25000, 4)
+print("Información del Automóvil:")
+auto.mostrar_info()
+print()
+
+# Crear una motocicleta
+moto = Motocicleta("Harley-Davidson", "Sportster", 2021, 15000, 1200)
+print("Información de la Motocicleta:")
+moto.mostrar_info()

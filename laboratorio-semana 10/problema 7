@@ -1,0 +1,63 @@
+import random
+
+# Función para generar una lista de números aleatorios
+def generar_lista(tamaño, limite_inferior, limite_superior):
+    return [random.randint(limite_inferior, limite_superior) for _ in range(tamaño)]
+
+# Algoritmo de Quicksort
+def quicksort(lista):
+    if len(lista) <= 1:
+        return lista
+    else:
+        pivote = lista[len(lista) // 2]  # Seleccionar el pivote (en este caso el del medio)
+        izquierda = [x for x in lista if x < pivote]
+        derecha = [x for x in lista if x > pivote]
+        return quicksort(izquierda) + [pivote] + quicksort(derecha)
+
+# Función de búsqueda binaria
+def busqueda_binaria(lista, objetivo):
+    bajo = 0
+    alto = len(lista) - 1
+    
+    while bajo <= alto:
+        medio = (bajo + alto) // 2
+        if lista[medio] == objetivo:
+            return medio  # Elemento encontrado, devolver su índice
+        elif lista[medio] < objetivo:
+            bajo = medio + 1
+        else:
+            alto = medio - 1
+    
+    return -1  # Si no se encuentra el elemento
+
+# Función principal para ejecutar el programa
+def main():
+    tamaño = int(input("Ingrese el tamaño de la lista de números aleatorios: "))
+    limite_inferior = int(input("Ingrese el límite inferior para los números aleatorios: "))
+    limite_superior = int(input("Ingrese el límite superior para los números aleatorios: "))
+    
+    # Generar la lista de números aleatorios
+    lista = generar_lista(tamaño, limite_inferior, limite_superior)
+    
+    print("\nLista generada de números aleatorios:")
+    print(lista)
+    
+    # Ordenar la lista usando Quicksort
+    lista_ordenada = quicksort(lista)
+    
+    print("\nLista después de ordenarla usando Quicksort:")
+    print(lista_ordenada)
+    
+    # Pedir al usuario que ingrese un número para buscar
+    objetivo = int(input("\nIngrese un número a buscar en la lista ordenada: "))
+    
+    # Realizar la búsqueda binaria
+    resultado = busqueda_binaria(lista_ordenada, objetivo)
+    
+    if resultado != -1:
+        print(f"El número {objetivo} fue encontrado en el índice {resultado}.")
+    else:
+        print(f"El número {objetivo} no se encuentra en la lista.")
+        
+# Ejecutar el programa
+main()

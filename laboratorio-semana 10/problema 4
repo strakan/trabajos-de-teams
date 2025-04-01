@@ -1,0 +1,43 @@
+import math
+
+def calcular_estadisticas(*numeros):
+    # Calcular promedio (media)
+    promedio = lambda nums: sum(nums) / len(nums)
+    
+    # Calcular mediana
+    mediana = lambda nums: (sorted(nums)[len(nums) // 2] if len(nums) % 2 != 0 else
+                            (sorted(nums)[len(nums) // 2 - 1] + sorted(nums)[len(nums) // 2]) / 2)
+    
+    # Calcular desviación estándar
+    desviacion_estandar = lambda nums: math.sqrt(sum([(x - promedio(nums)) ** 2 for x in nums]) / len(nums))
+    
+    # Calcular las estadísticas
+    prom = promedio(numeros)
+    med = mediana(numeros)
+    desv = desviacion_estandar(numeros)
+    
+    return prom, med, desv
+
+def solicitar_numeros():
+    # Solicitar la lista de números al usuario
+    numeros = input("Introduce los números separados por espacio: ").split()
+    
+    # Convertir los números a tipo float
+    numeros = [float(num) for num in numeros]
+    
+    return numeros
+
+def mostrar_estadisticas():
+    # Solicitar los números al usuario
+    numeros = solicitar_numeros()
+    
+    # Calcular las estadísticas
+    promedio, mediana, desviacion = calcular_estadisticas(*numeros)
+    
+    # Mostrar los resultados
+    print(f"\nPromedio: {promedio}")
+    print(f"Mediana: {mediana}")
+    print(f"Desviación estándar: {desviacion}")
+
+# Ejecutar el programa
+mostrar_estadisticas()

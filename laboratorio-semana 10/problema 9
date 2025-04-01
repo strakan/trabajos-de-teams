@@ -1,0 +1,82 @@
+# Módulo de gestión de tareas (todo en un solo archivo)
+
+# Paradigma Orientado a Objetos: Clase Tarea
+class Tarea:
+    def __init__(self, nombre, descripcion):
+        self.nombre = nombre
+        self.descripcion = descripcion
+        self.completada = False
+    
+    def completar(self):
+        self.completada = True
+    
+    def mostrar_info(self):
+        estado = "Completada" if self.completada else "Pendiente"
+        return f"Tarea: {self.nombre}\nDescripción: {self.descripcion}\nEstado: {estado}"
+
+# Paradigma Estructurado: Funciones bien definidas
+def menu():
+    print("\n--- Gestión de Tareas ---")
+    print("1. Agregar tarea")
+    print("2. Eliminar tarea")
+    print("3. Mostrar tareas")
+    print("4. Completar tarea")
+    print("5. Salir")
+
+# Funciones para gestionar tareas
+def agregar_tarea(lista_tareas, nombre, descripcion):
+    tarea = Tarea(nombre, descripcion)
+    lista_tareas.append(tarea)
+
+def eliminar_tarea(lista_tareas, nombre):
+    lista_tareas[:] = [tarea for tarea in lista_tareas if tarea.nombre != nombre]
+
+def mostrar_tareas(lista_tareas):
+    if not lista_tareas:
+        print("No hay tareas.")
+    else:
+        for tarea in lista_tareas:
+            print(tarea.mostrar_info())
+
+def completar_tarea(lista_tareas, nombre):
+    for tarea in lista_tareas:
+        if tarea.nombre == nombre:
+            tarea.completar()
+            break
+
+# Paradigma Imperativo: Control de flujo con condicionales y bucles
+def main():
+    lista_tareas = []  # Lista de tareas
+
+    while True:
+        menu()
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            nombre = input("Ingrese el nombre de la tarea: ")
+            descripcion = input("Ingrese la descripción de la tarea: ")
+            agregar_tarea(lista_tareas, nombre, descripcion)
+            print("Tarea agregada.")
+
+        elif opcion == "2":
+            nombre = input("Ingrese el nombre de la tarea a eliminar: ")
+            eliminar_tarea(lista_tareas, nombre)
+            print("Tarea eliminada.")
+
+        elif opcion == "3":
+            mostrar_tareas(lista_tareas)
+
+        elif opcion == "4":
+            nombre = input("Ingrese el nombre de la tarea a completar: ")
+            completar_tarea(lista_tareas, nombre)
+            print("Tarea completada.")
+
+        elif opcion == "5":
+            print("Saliendo...")
+            break
+        
+        else:
+            print("Opción no válida.")
+
+# Ejecutar el programa
+main()

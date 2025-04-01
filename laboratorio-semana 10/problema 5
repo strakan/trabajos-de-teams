@@ -1,0 +1,163 @@
+# Módulo para conversiones de unidades dentro del mismo archivo
+
+# Kilómetros a millas
+def km_a_millas(km):
+    return km * 0.621371
+
+# Millas a kilómetros
+def millas_a_km(millas):
+    return millas / 0.621371
+
+# Celsius a Fahrenheit
+def celsius_a_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+# Fahrenheit a Celsius
+def fahrenheit_a_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+
+# Litros a galones
+def litros_a_galones(litros):
+    return litros * 0.264172
+
+# Galones a litros
+def galones_a_litros(galones):
+    return galones / 0.264172
+
+# Gramos a onzas
+def gramos_a_onzas(gramos):
+    return gramos * 0.035274
+
+# Onzas a gramos
+def onzas_a_gramos(onzas):
+    return onzas / 0.035274
+
+# Metros a pies
+def metros_a_pies(metros):
+    return metros * 3.28084
+
+# Pies a metros
+def pies_a_metros(pies):
+    return pies / 3.28084
+
+# Kilogramos a libras
+def kg_a_libras(kg):
+    return kg * 2.20462
+
+# Libras a kilogramos
+def libras_a_kg(libras):
+    return libras / 2.20462
+
+# Centímetros a pulgadas
+def cm_a_pulgadas(cm):
+    return cm / 2.54
+
+# Pulgadas a centímetros
+def pulgadas_a_cm(pulgadas):
+    return pulgadas * 2.54
+
+# Función para mostrar el menú y realizar las conversiones
+def menu():
+    while True:
+        print("\n---- Menú de Conversión de Unidades ----")
+        print("1. Kilómetros a millas")
+        print("2. Millas a kilómetros")
+        print("3. Celsius a Fahrenheit")
+        print("4. Fahrenheit a Celsius")
+        print("5. Litros a galones")
+        print("6. Galones a litros")
+        print("7. Gramos a onzas")
+        print("8. Onzas a gramos")
+        print("9. Metros a pies")
+        print("10. Pies a metros")
+        print("11. Kilogramos a libras")
+        print("12. Libras a kilogramos")
+        print("13. Centímetros a pulgadas")
+        print("14. Pulgadas a centímetros")
+        print("15. Salir")
+        
+        try:
+            opcion = int(input("Seleccione una opción (1-15): "))
+
+            if opcion == 1:
+                km = float(input("Ingrese la cantidad en kilómetros: "))
+                millas = km_a_millas(km)
+                print(f"{km} kilómetros son {millas:.2f} millas.")
+            
+            elif opcion == 2:
+                millas = float(input("Ingrese la cantidad en millas: "))
+                km = millas_a_km(millas)
+                print(f"{millas} millas son {km:.2f} kilómetros.")
+            
+            elif opcion == 3:
+                celsius = float(input("Ingrese la temperatura en grados Celsius: "))
+                fahrenheit = celsius_a_fahrenheit(celsius)
+                print(f"{celsius}° Celsius son {fahrenheit:.2f}° Fahrenheit.")
+            
+            elif opcion == 4:
+                fahrenheit = float(input("Ingrese la temperatura en grados Fahrenheit: "))
+                celsius = fahrenheit_a_celsius(fahrenheit)
+                print(f"{fahrenheit}° Fahrenheit son {celsius:.2f}° Celsius.")
+            
+            elif opcion == 5:
+                litros = float(input("Ingrese la cantidad en litros: "))
+                galones = litros_a_galones(litros)
+                print(f"{litros} litros son {galones:.2f} galones.")
+            
+            elif opcion == 6:
+                galones = float(input("Ingrese la cantidad en galones: "))
+                litros = galones_a_litros(galones)
+                print(f"{galones} galones son {litros:.2f} litros.")
+            
+            elif opcion == 7:
+                gramos = float(input("Ingrese la cantidad en gramos: "))
+                onzas = gramos_a_onzas(gramos)
+                print(f"{gramos} gramos son {onzas:.2f} onzas.")
+            
+            elif opcion == 8:
+                onzas = float(input("Ingrese la cantidad en onzas: "))
+                gramos = onzas_a_gramos(onzas)
+                print(f"{onzas} onzas son {gramos:.2f} gramos.")
+            
+            elif opcion == 9:
+                metros = float(input("Ingrese la cantidad en metros: "))
+                pies = metros_a_pies(metros)
+                print(f"{metros} metros son {pies:.2f} pies.")
+            
+            elif opcion == 10:
+                pies = float(input("Ingrese la cantidad en pies: "))
+                metros = pies_a_metros(pies)
+                print(f"{pies} pies son {metros:.2f} metros.")
+            
+            elif opcion == 11:
+                kg = float(input("Ingrese la cantidad en kilogramos: "))
+                libras = kg_a_libras(kg)
+                print(f"{kg} kilogramos son {libras:.2f} libras.")
+            
+            elif opcion == 12:
+                libras = float(input("Ingrese la cantidad en libras: "))
+                kg = libras_a_kg(libras)
+                print(f"{libras} libras son {kg:.2f} kilogramos.")
+            
+            elif opcion == 13:
+                cm = float(input("Ingrese la cantidad en centímetros: "))
+                pulgadas = cm_a_pulgadas(cm)
+                print(f"{cm} centímetros son {pulgadas:.2f} pulgadas.")
+            
+            elif opcion == 14:
+                pulgadas = float(input("Ingrese la cantidad en pulgadas: "))
+                cm = pulgadas_a_cm(pulgadas)
+                print(f"{pulgadas} pulgadas son {cm:.2f} centímetros.")
+            
+            elif opcion == 15:
+                print("Saliendo del programa.")
+                break
+            
+            else:
+                print("Opción no válida. Intenta nuevamente.")
+
+        except ValueError:
+            print("Entrada no válida. Por favor ingresa un número correcto.")
+
+# Ejecutar el programa
+menu()
